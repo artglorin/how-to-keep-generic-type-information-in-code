@@ -14,6 +14,14 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+tasks {
+    withType<JavaCompile> {
+        sourceCompatibility = JavaVersion.VERSION_17.toString()
+        targetCompatibility = JavaVersion.VERSION_17.toString()
+        options.compilerArgs = listOf("--enable-preview")
+    }
+    withType<Test> {
+        useJUnitPlatform()
+        jvmArgs = listOf("--enable-preview")
+    }
 }

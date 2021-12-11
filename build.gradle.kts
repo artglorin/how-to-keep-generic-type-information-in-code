@@ -10,8 +10,11 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
+    val jupiterVersion = "5.8.2"
+    val assertJVersion = "3.21.0"
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$jupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.assertj:assertj-core:$assertJVersion")
 }
 
 tasks {
